@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26A8E7342909A573006499CE /* ParkerSwapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A8E7332909A573006499CE /* ParkerSwapperView.swift */; };
+		26A8E7362909A97A006499CE /* ParkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A8E7352909A97A006499CE /* ParkerView.swift */; };
 		26D26C712904813A002D0A96 /* TowsonParkSwapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D26C702904813A002D0A96 /* TowsonParkSwapApp.swift */; };
 		26D26C732904813A002D0A96 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D26C722904813A002D0A96 /* ContentView.swift */; };
 		26D26C752904813B002D0A96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26D26C742904813B002D0A96 /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26A8E7332909A573006499CE /* ParkerSwapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkerSwapperView.swift; sourceTree = "<group>"; };
+		26A8E7352909A97A006499CE /* ParkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkerView.swift; sourceTree = "<group>"; };
 		26D26C6D2904813A002D0A96 /* TowsonParkSwap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TowsonParkSwap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26D26C702904813A002D0A96 /* TowsonParkSwapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowsonParkSwapApp.swift; sourceTree = "<group>"; };
 		26D26C722904813A002D0A96 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 			children = (
 				26D26C702904813A002D0A96 /* TowsonParkSwapApp.swift */,
 				26D26C722904813A002D0A96 /* ContentView.swift */,
+				26A8E7332909A573006499CE /* ParkerSwapperView.swift */,
+				26A8E7352909A97A006499CE /* ParkerView.swift */,
 				26D26C742904813B002D0A96 /* Assets.xcassets */,
 				26D26C762904813B002D0A96 /* Preview Content */,
 			);
@@ -258,7 +264,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				26D26C732904813A002D0A96 /* ContentView.swift in Sources */,
+				26A8E7362909A97A006499CE /* ParkerView.swift in Sources */,
 				26D26C712904813A002D0A96 /* TowsonParkSwapApp.swift in Sources */,
+				26A8E7342909A573006499CE /* ParkerSwapperView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
