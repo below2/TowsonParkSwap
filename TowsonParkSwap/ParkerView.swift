@@ -9,13 +9,21 @@ import SwiftUI
 
 struct ParkerView: View {
     @State var showGarageSelections: Bool = false
+    @State var showGarageWV: Bool = true
+    @State var showGarageTT: Bool = true
+    @State var showGarageU: Bool = true
+    @State var showGarageG: Bool = true
+    @State var showGarageFloorSelections: Bool = false
+    
     @State var showStreetSelections: Bool = false
     @State var showParkingLotSelections: Bool =  false
     
     var body: some View {
         VStack {
+            // Reserve text
             ReserveText()
             
+            // Garage button
             Button(action: {
                 showGarageSelections.toggle()
                 showStreetSelections = false
@@ -24,6 +32,7 @@ struct ParkerView: View {
                 Garage()
             }
             
+            // Street button
             Button(action: {
                 showStreetSelections.toggle()
                 showGarageSelections = false
@@ -32,6 +41,7 @@ struct ParkerView: View {
                 Street()
             }
             
+            // Parking lot button
             Button(action: {
                 showParkingLotSelections.toggle()
                 showGarageSelections = false
@@ -40,44 +50,98 @@ struct ParkerView: View {
                 ParkingLot()
             }
             
-            // Garage, on floor, buttons
+//--------------------------------------------------------------------//
+            // Garage, in <garages>, buttons, on floor <floors>, buttons
             if showGarageSelections {
-                Text("on floor")
+                Text("in")
                     .font(.largeTitle)
                     .multilineTextAlignment(.center)
                 
-                // Garage, first row (1-3)
-                HStack {
-                    Button(action: {print("1")}) {
-                        GarageOne()
+                VStack {
+                    if showGarageWV {
+                        Button(action: {
+                            showGarageTT.toggle()
+                            showGarageU.toggle()
+                            showGarageG.toggle()
+                            showGarageFloorSelections.toggle()
+                        }) {
+                            GarageWV()
+                        }
                     }
                     
-                    Button(action: {print("2")}) {
-                        GarageTwo()
+                    if showGarageTT {
+                        Button(action: {
+                            showGarageWV.toggle()
+                            showGarageU.toggle()
+                            showGarageG.toggle()
+                            showGarageFloorSelections.toggle()
+                            }) {
+                            GarageTT()
+                        }
                     }
                     
-                    Button(action: {print("3")}) {
-                        GarageThree()
+                    if showGarageU {
+                        Button(action: {
+                            showGarageWV.toggle()
+                            showGarageTT.toggle()
+                            showGarageG.toggle()
+                            showGarageFloorSelections.toggle()
+                        }) {
+                            GarageU()
+                        }
+                    }
+                    
+                    if showGarageG {
+                        Button(action: {
+                            showGarageWV.toggle()
+                            showGarageTT.toggle()
+                            showGarageU.toggle()
+                            showGarageFloorSelections.toggle()
+                        }) {
+                            GarageG()
+                        }
                     }
                 }
+
                 
-                // Garage, second row (4-6)
-                HStack {
-                    Button(action: {print("4")}) {
-                        GarageFour()
+                if showGarageFloorSelections {
+                    Text("on floor")
+                        .font(.largeTitle)
+                        .multilineTextAlignment(.center)
+                    
+                    // Garage, first row (1-3)
+                    HStack {
+                        Button(action: {print("1")}) {
+                            FloorOne()
+                        }
+                        
+                        Button(action: {print("2")}) {
+                            FloorTwo()
+                        }
+                        
+                        Button(action: {print("3")}) {
+                            FloorThree()
+                        }
                     }
                     
-                    Button(action: {print("5")}) {
-                        GarageFive()
-                    }
-                    
-                    Button(action: {print("6")}) {
-                        GarageSix()
+                    // Garage, second row (4-6)
+                    HStack {
+                        Button(action: {print("4")}) {
+                            FloorFour()
+                        }
+                        
+                        Button(action: {print("5")}) {
+                            FloorFive()
+                        }.disabled(showGarageU)
+                        
+                        Button(action: {print("6")}) {
+                            FloorSix()
+                        }.disabled(showGarageTT || showGarageU)
                     }
                 }
             }
             
-            // Street, near, buttons
+            // Street, near <locations> , buttons
             if showStreetSelections {
                 Text("near the")
                     .font(.largeTitle)
@@ -117,7 +181,7 @@ struct ParkerView: View {
                 }
             }
             
-            // Parking lot, lot number, buttons
+            // Parking lot, lot number <number>, buttons
             if showParkingLotSelections {
             Text("lot number")
                 .font(.largeTitle)
@@ -470,73 +534,121 @@ struct GlenParkingGarage: View {
     }
 }
 
-struct GarageOne: View {
+struct FloorOne: View {
     var body: some View {
         Text("1")
             .font(.title)
             .foregroundColor(.white)
             .padding()
-            .frame(width: 120, height: 150)
+            .frame(width: 120, height: 95)
             .background(Color.yellow)
             .cornerRadius(15.0)
     }
 }
 
-struct GarageTwo: View {
+struct FloorTwo: View {
     var body: some View {
         Text("2")
             .font(.title)
             .foregroundColor(.white)
             .padding()
-            .frame(width: 120, height: 150)
+            .frame(width: 120, height: 95)
             .background(Color.yellow)
             .cornerRadius(15.0)
     }
 }
 
-struct GarageThree: View {
+struct FloorThree: View {
     var body: some View {
         Text("3")
             .font(.title)
             .foregroundColor(.white)
             .padding()
-            .frame(width: 120, height: 150)
+            .frame(width: 120, height: 95)
             .background(Color.yellow)
             .cornerRadius(15.0)
     }
 }
 
-struct GarageFour: View {
+struct FloorFour: View {
     var body: some View {
         Text("4")
             .font(.title)
             .foregroundColor(.white)
             .padding()
-            .frame(width: 120, height: 150)
+            .frame(width: 120, height: 95)
             .background(Color.yellow)
             .cornerRadius(15.0)
     }
 }
 
-struct GarageFive: View {
+struct FloorFive: View {
     var body: some View {
         Text("5")
             .font(.title)
             .foregroundColor(.white)
             .padding()
-            .frame(width: 120, height: 150)
+            .frame(width: 120, height: 95)
             .background(Color.yellow)
             .cornerRadius(15.0)
     }
 }
 
-struct GarageSix: View {
+struct FloorSix: View {
     var body: some View {
         Text("6")
             .font(.title)
             .foregroundColor(.white)
             .padding()
-            .frame(width: 120, height: 150)
+            .frame(width: 120, height: 95)
+            .background(Color.yellow)
+            .cornerRadius(15.0)
+    }
+}
+
+struct GarageWV: View {
+    var body: some View {
+        Text("West Village Parking Garage")
+            .font(.title)
+            .foregroundColor(.white)
+            .padding()
+            .frame(width: 385.0, height: 60)
+            .background(Color.yellow)
+            .cornerRadius(15.0)
+    }
+}
+
+struct GarageTT: View {
+    var body: some View {
+        Text("Towsontown Parking Garage")
+            .font(.title)
+            .foregroundColor(.white)
+            .padding()
+            .frame(width: 385.0, height: 60)
+            .background(Color.yellow)
+            .cornerRadius(15.0)
+    }
+}
+
+struct GarageU: View {
+    var body: some View {
+        Text("Union Parking Garage")
+            .font(.title)
+            .foregroundColor(.white)
+            .padding()
+            .frame(width: 385.0, height: 60)
+            .background(Color.yellow)
+            .cornerRadius(15.0)
+    }
+}
+
+struct GarageG: View {
+    var body: some View {
+        Text("Glen Parking Garage")
+            .font(.title)
+            .foregroundColor(.white)
+            .padding()
+            .frame(width: 385.0, height: 60)
             .background(Color.yellow)
             .cornerRadius(15.0)
     }
