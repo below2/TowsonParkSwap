@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		265A6D4F290A218900158F73 /* ReservationTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265A6D4E290A218900158F73 /* ReservationTimeView.swift */; };
+		2698400E290AE9BE0035F156 /* SwapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698400D290AE9BE0035F156 /* SwapperView.swift */; };
 		26A8E7342909A573006499CE /* ParkerSwapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A8E7332909A573006499CE /* ParkerSwapperView.swift */; };
 		26A8E7362909A97A006499CE /* ParkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A8E7352909A97A006499CE /* ParkerView.swift */; };
 		26D26C712904813A002D0A96 /* TowsonParkSwapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D26C702904813A002D0A96 /* TowsonParkSwapApp.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		265A6D4E290A218900158F73 /* ReservationTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationTimeView.swift; sourceTree = "<group>"; };
+		2698400D290AE9BE0035F156 /* SwapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapperView.swift; sourceTree = "<group>"; };
 		26A8E7332909A573006499CE /* ParkerSwapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkerSwapperView.swift; sourceTree = "<group>"; };
 		26A8E7352909A97A006499CE /* ParkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkerView.swift; sourceTree = "<group>"; };
 		26D26C6D2904813A002D0A96 /* TowsonParkSwap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TowsonParkSwap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +105,7 @@
 				26D26C702904813A002D0A96 /* TowsonParkSwapApp.swift */,
 				26D26C722904813A002D0A96 /* ContentView.swift */,
 				26A8E7332909A573006499CE /* ParkerSwapperView.swift */,
+				2698400D290AE9BE0035F156 /* SwapperView.swift */,
 				26A8E7352909A97A006499CE /* ParkerView.swift */,
 				265A6D4E290A218900158F73 /* ReservationTimeView.swift */,
 				26D26C742904813B002D0A96 /* Assets.xcassets */,
@@ -267,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26D26C732904813A002D0A96 /* ContentView.swift in Sources */,
+				2698400E290AE9BE0035F156 /* SwapperView.swift in Sources */,
 				26A8E7362909A97A006499CE /* ParkerView.swift in Sources */,
 				265A6D4F290A218900158F73 /* ReservationTimeView.swift in Sources */,
 				26D26C712904813A002D0A96 /* TowsonParkSwapApp.swift in Sources */,

@@ -8,7 +8,7 @@
 import SwiftUI
 
 // I found like all the clock shit online so unsure how it works entirely, but it lets the user select a time between 15 min from now to 30 days from now
-//
+
 struct ReservationTimeView: View {
     @State private var currentDate = Date()
     
@@ -27,7 +27,9 @@ struct ReservationTimeView: View {
                 .multilineTextAlignment(.center)
             
             // Gray divider line
-            Divider().frame(width: 360.0).background(Color.gray)
+            Divider()
+                .frame(width: 360.0)
+                .background(Color.gray)
             
             Spacer()
             

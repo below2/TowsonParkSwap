@@ -11,6 +11,8 @@ struct ParkerSwapperView: View {
     var body: some View {
         VStack {
             Spacer()
+            
+            // Parker button
             Button(action: {print("swith view to parking ui")}) {
                 Text("PARKER")
                     .font(.largeTitle)
@@ -20,7 +22,21 @@ struct ParkerSwapperView: View {
                     .background(Color.yellow)
                     .cornerRadius(15.0)
             }
+            
+            // Parker text
+            Text("Make a reservation")
+                .font(.title2)
+            
             Spacer()
+            
+            // Gray divider line
+            Divider()
+                .frame(width: 360.0)
+                .background(Color.gray)
+            
+            Spacer()
+            
+            // Swapper button
             Button(action: {print("switch view to swapper ui")}) {
                 Text("SWAPPER")
                     .font(.largeTitle)
@@ -30,6 +46,12 @@ struct ParkerSwapperView: View {
                     .background(Color.yellow)
                     .cornerRadius(15.0)
             }
+            
+            // Swapper text
+            Text("Fulfill other user's reservation requests")
+                .font(.title2)
+                .multilineTextAlignment(.center)
+            
             Spacer()
         }
         .padding()
