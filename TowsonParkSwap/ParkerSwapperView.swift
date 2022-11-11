@@ -8,12 +8,20 @@
 import SwiftUI
 
 struct ParkerSwapperView: View {
+    
+    // State property vars:
+    @State var parkerSelected: Bool = false
+    @State var swapperSelected: Bool = false
+    
     var body: some View {
         VStack {
             Spacer()
             
             // Parker button
-            Button(action: {print("swith view to parking ui")}) {
+            Button(action: {
+                parkerSelected.toggle()
+                swapperSelected = false
+            }) {
                 Text("PARKER")
                     .font(.largeTitle)
                     .foregroundColor(.white)
@@ -22,10 +30,6 @@ struct ParkerSwapperView: View {
                     .background(Color.yellow)
                     .cornerRadius(15.0)
             }
-            
-            // Parker text
-            Text("Make a reservation")
-                .font(.title2)
             
             Spacer()
             
@@ -37,7 +41,10 @@ struct ParkerSwapperView: View {
             Spacer()
             
             // Swapper button
-            Button(action: {print("switch view to swapper ui")}) {
+            Button(action: {
+                swapperSelected.toggle()
+                parkerSelected = false
+            }) {
                 Text("SWAPPER")
                     .font(.largeTitle)
                     .foregroundColor(.white)
@@ -47,12 +54,45 @@ struct ParkerSwapperView: View {
                     .cornerRadius(15.0)
             }
             
-            // Swapper text
-            Text("Fulfill other user's reservation requests")
-                .font(.title2)
-                .multilineTextAlignment(.center)
-            
             Spacer()
+            
+            // NavigationLink logic for parker
+            if parkerSelected {
+                // Gray divider line
+                Divider()
+                    .frame(width: 360.0)
+                    .background(Color.gray)
+                    .offset(y: -10)
+                
+                Text("Parker role selected")
+                    .font(.title3)
+                
+                NavigationLink("Continue", destination: ParkerView())
+                    .font(.title)
+                    .foregroundColor(.white)
+                    .frame(width: 280.0, height: 60.0)
+                    .background(Color.yellow)
+                    .cornerRadius(10.0)
+            }
+            
+            // NavigationLink logic for swapper
+            else if swapperSelected {
+                // Gray divider line
+                Divider()
+                    .frame(width: 360.0)
+                    .background(Color.gray)
+                    .offset(y: -10)
+                
+                Text("Swapper role selected")
+                    .font(.title3)
+                
+                NavigationLink("Continue", destination: SwapperView())
+                    .font(.title)
+                    .foregroundColor(.white)
+                    .frame(width: 280.0, height: 60.0)
+                    .background(Color.yellow)
+                    .cornerRadius(10.0)
+            }
         }
         .padding()
     }

@@ -8,46 +8,93 @@
 import SwiftUI
 
 struct ParkerView: View {
+    
+    // State property vars:
+    // Handle general specifier for location selection
+    @State var showGarage: Bool = true
+    @State var showStreet: Bool = true
+    @State var showParkingLot: Bool = true
+    
+    // Handle optional specifier for garage location selection
     @State var showGarageSelections: Bool = false
     @State var showGarageWV: Bool = true
     @State var showGarageTT: Bool = true
     @State var showGarageU: Bool = true
     @State var showGarageG: Bool = true
-    @State var showGarageFloorSelections: Bool = false
     
+    // Handle specifier for location selection
+    @State var showGarageFloorSelections: Bool = false
     @State var showStreetSelections: Bool = false
     @State var showParkingLotSelections: Bool =  false
+    
+    // NavigationLink is not shown until selection is made
+    @State var canContinue: Bool = false
+    
+    // Initiate LocationSelection object
+    @State var userLocationSelection = LocationSelection(
+        general: "",
+        optionalSpecifier: "",
+        specifier: "")
     
     var body: some View {
         VStack {
             // Reserve text
             ReserveText()
             
-            // Garage button
-            Button(action: {
-                showGarageSelections.toggle()
-                showStreetSelections = false
-                showParkingLotSelections = false
-            }) {
-                Garage()
+            if showGarage {
+                // Garage button
+                Button(action: {
+                    showGarageSelections.toggle()
+                    showStreet.toggle()
+                    showParkingLot.toggle()
+                    
+                    showStreetSelections = false
+                    showParkingLotSelections = false
+                    
+                    canContinue = false
+                    
+                    userLocationSelection.general = "Garage parking"
+                }) {
+                    Garage()
+                }
             }
             
-            // Street button
-            Button(action: {
-                showStreetSelections.toggle()
-                showGarageSelections = false
-                showParkingLotSelections = false
-            }) {
-                Street()
+            if showStreet {
+                // Street button
+                Button(action: {
+                    showStreetSelections.toggle()
+                    showGarage.toggle()
+                    showParkingLot.toggle()
+                    
+                    showGarageSelections = false
+                    showParkingLotSelections = false
+                    
+                    canContinue = false
+                    
+                    userLocationSelection.general = "Street parking"
+                    userLocationSelection.optionalSpecifier = "near the"
+                }) {
+                    Street()
+                }
             }
             
-            // Parking lot button
-            Button(action: {
-                showParkingLotSelections.toggle()
-                showGarageSelections = false
-                showStreetSelections = false
-            }) {
-                ParkingLot()
+            if showParkingLot {
+                // Parking lot button
+                Button(action: {
+                    showParkingLotSelections.toggle()
+                    showGarage.toggle()
+                    showStreet.toggle()
+                    
+                    showGarageSelections = false
+                    showStreetSelections = false
+                    
+                    canContinue = false
+                    
+                    userLocationSelection.general = "Parking lot"
+                    userLocationSelection.optionalSpecifier = ""
+                }) {
+                    ParkingLot()
+                }
             }
             
 //--------------------------------------------------------------------//
@@ -58,12 +105,15 @@ struct ParkerView: View {
                     .multilineTextAlignment(.center)
                 
                 VStack {
+                    // Garage optional specifier selections:
                     if showGarageWV {
                         Button(action: {
                             showGarageTT.toggle()
                             showGarageU.toggle()
                             showGarageG.toggle()
                             showGarageFloorSelections.toggle()
+                            
+                            userLocationSelection.optionalSpecifier = "West Village Parking Garage"
                         }) {
                             GarageWV()
                         }
@@ -75,7 +125,9 @@ struct ParkerView: View {
                             showGarageU.toggle()
                             showGarageG.toggle()
                             showGarageFloorSelections.toggle()
-                            }) {
+                            
+                            userLocationSelection.optionalSpecifier = "Towsontown Parking Garage"
+                        }) {
                             GarageTT()
                         }
                     }
@@ -86,6 +138,8 @@ struct ParkerView: View {
                             showGarageTT.toggle()
                             showGarageG.toggle()
                             showGarageFloorSelections.toggle()
+                            
+                            userLocationSelection.optionalSpecifier = "Union Parking Garage"
                         }) {
                             GarageU()
                         }
@@ -97,13 +151,15 @@ struct ParkerView: View {
                             showGarageTT.toggle()
                             showGarageU.toggle()
                             showGarageFloorSelections.toggle()
+                            
+                            userLocationSelection.optionalSpecifier = "Glen Parking Garage"
                         }) {
                             GarageG()
                         }
                     }
                 }
-
                 
+                // Garage specifier selections:
                 if showGarageFloorSelections {
                     Text("on floor")
                         .font(.largeTitle)
@@ -111,30 +167,48 @@ struct ParkerView: View {
                     
                     // Garage, first row (1-3)
                     HStack {
-                        Button(action: {print("1")}) {
+                        Button(action: {
+                            canContinue = true
+                            userLocationSelection.specifier = "Floor One"
+                        }) {
                             FloorOne()
                         }
                         
-                        Button(action: {print("2")}) {
+                        Button(action: {
+                            canContinue = true
+                            userLocationSelection.specifier = "Floor Two"
+                        }) {
                             FloorTwo()
                         }
                         
-                        Button(action: {print("3")}) {
+                        Button(action: {
+                            canContinue = true
+                            userLocationSelection.specifier = "Floor Three"
+                        }) {
                             FloorThree()
                         }
                     }
                     
                     // Garage, second row (4-6)
                     HStack {
-                        Button(action: {print("4")}) {
+                        Button(action: {
+                            canContinue = true
+                            userLocationSelection.specifier = "Floor Four"
+                        }) {
                             FloorFour()
                         }
                         
-                        Button(action: {print("5")}) {
+                        Button(action: {
+                            canContinue = true
+                            userLocationSelection.specifier = "Floor Five"
+                        }) {
                             FloorFive()
                         }.disabled(showGarageU)
                         
-                        Button(action: {print("6")}) {
+                        Button(action: {
+                            canContinue = true
+                            userLocationSelection.specifier = "Floor Six"
+                        }) {
                             FloorSix()
                         }.disabled(showGarageTT || showGarageU)
                     }
@@ -147,35 +221,54 @@ struct ParkerView: View {
                     .font(.largeTitle)
                     .multilineTextAlignment(.center)
                 
+                // Street specifier selections:
                 // Street, first row (Center for the Arts and Union Parking Garage)
                 HStack {
-                    Button(action: {print("Center for the Arts")}) {
+                    Button(action: {
+                        canContinue = true
+                        userLocationSelection.specifier = "Center for the Arts"
+                    }) {
                         CenterForTheArts()
                     }
                     
-                    Button(action: {print("Union Parking Garage")}) {
+                    Button(action: {
+                        canContinue = true
+                        userLocationSelection.specifier = "Union Parking Garage"
+                    }) {
                         UnionParkingGarage()
                     }
                 }
                 
                 // Street, second row (Towers and Administration building)
                 HStack {
-                    Button(action: {print("Towers")}) {
+                    Button(action: {
+                        canContinue = true
+                        userLocationSelection.specifier = "Towers"
+                    }) {
                         Towers()
                     }
                     
-                    Button(action: {print("Administration Building")}) {
+                    Button(action: {
+                        canContinue = true
+                        userLocationSelection.specifier = "Administration Building"
+                    }) {
                         AdministrationBuilding()
                     }
                 }
                 
                 // Street, third row (Towson Place Apartments and Glen Parking Garage)
                 HStack {
-                    Button(action: {print("Towson Place Apartments")}) {
+                    Button(action: {
+                        canContinue = true
+                        userLocationSelection.specifier = "Towson Place Apartments"
+                    }) {
                         TowsonPlaceApartments()
                     }
                     
-                    Button(action: {print("Glen Parking Garage")}) {
+                    Button(action: {
+                        canContinue = true
+                        userLocationSelection.specifier = "Glen Parking Garage"
+                    }) {
                         GlenParkingGarage()
                     }
                 }
@@ -183,74 +276,133 @@ struct ParkerView: View {
             
             // Parking lot, lot number <number>, buttons
             if showParkingLotSelections {
-            Text("lot number")
-                .font(.largeTitle)
-                .multilineTextAlignment(.center)
-            
+                Text("lot number")
+                    .font(.largeTitle)
+                    .multilineTextAlignment(.center)
+                
+                // Parking lot specifier selections:
                 // Parking lot, first row (1-4)
                 HStack {
-                    Button(action: {print("1")}) {
+                    Button(action: {
+                        canContinue = true
+                        userLocationSelection.specifier = "Lot 1"
+                    }) {
                         LotOne()
                     }
-
-                    Button(action: {print("2")}) {
+                    
+                    Button(action: {
+                        canContinue = true
+                        userLocationSelection.specifier = "Lot 2"
+                    }) {
                         LotTwo()
                     }
                     
-                    Button(action: {print("3")}) {
+                    Button(action: {
+                        canContinue = true
+                        userLocationSelection.specifier = "Lot 3"
+                    }) {
                         LotThree()
                     }
                     
-                    Button(action: {print("4")}) {
+                    Button(action: {
+                        canContinue = true
+                        userLocationSelection.specifier = "Lot 4"
+                    }) {
                         LotFour()
                     }
                 }
                 
                 // Parking lot, second row (5-8)
                 HStack {
-                    Button(action: {print("5")}) {
+                    Button(action: {
+                        canContinue = true
+                        userLocationSelection.specifier = "Lot 5"
+                    }) {
                         LotFive()
                     }
                     
-                    Button(action: {print("6")}) {
+                    Button(action: {
+                        canContinue = true
+                        userLocationSelection.specifier = "Lot 6"
+                    }) {
                         LotSix()
                     }
                     
-                    Button(action: {print("7")}) {
+                    Button(action: {
+                        canContinue = true
+                        userLocationSelection.specifier = "Lot 7"
+                    }) {
                         LotSeven()
                     }
                     
-                    Button(action: {print("8")}) {
+                    Button(action: {
+                        canContinue = true
+                        userLocationSelection.specifier = "Lot 8"
+                    }) {
                         LotEight()
                     }
                 }
                 
                 // Parking lot, third row (8a-11)
                 HStack {
-                    Button(action: {print("8a")}) {
+                    Button(action: {
+                        canContinue = true
+                        userLocationSelection.specifier = "Lot 8A"
+                    }) {
                         LotEightA()
                     }
                     
-                    Button(action: {print("9")}) {
+                    Button(action: {
+                        canContinue = true
+                        userLocationSelection.specifier = "Lot 9"
+                    }) {
                         LotNine()
                     }
                     
-                    Button(action: {print("10")}) {
+                    Button(action: {
+                        canContinue = true
+                        userLocationSelection.specifier = "Lot 10"
+                    }) {
                         LotTen()
                     }
                     
-                    Button(action: {print("11")}) {
+                    Button(action: {
+                        canContinue = true
+                        userLocationSelection.specifier = "Lot 11"
+                    }) {
                         LotEleven()
                     }
                 }
                 
                 // Parking lot, last row (14)
-                Button(action: {print("14")}) {
+                Button(action: {
+                    canContinue = true
+                    userLocationSelection.specifier = "Lot 14"
+                }) {
                     LotFourteen()
                 }
             }
             
+//--------------------------------------------------------------------//
+            
+            // NavigationLink formatting:
+            if canContinue {
+                // Gray divider line
+                Divider()
+                    .frame(width: 360.0)
+                    .background(Color.gray)
+                    .offset(y: 20)
+                
+                NavigationLink("Continue", destination: ReservationTimeView(locationSelection: userLocationSelection))
+                    .font(.title)
+                    .foregroundColor(.white)
+                    .frame(width: 380.0, height: 60.0)
+                    .background(Color.yellow)
+                    .cornerRadius(10.0)
+                    .offset(y: 40)
+            }
         }
+        
         .padding()
     }
 }
@@ -262,6 +414,7 @@ struct ParkerView_Previews: PreviewProvider {
     }
 }
 
+// Extracted subviews (TODO: refactor)
 struct ReserveText: View {
     var body: some View {
         Text("Reserve parking spot at a")
