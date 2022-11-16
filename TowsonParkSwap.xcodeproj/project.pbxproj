@@ -13,6 +13,10 @@
 		2698400E290AE9BE0035F156 /* SwapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698400D290AE9BE0035F156 /* SwapperView.swift */; };
 		26A8E7342909A573006499CE /* ParkerSwapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A8E7332909A573006499CE /* ParkerSwapperView.swift */; };
 		26A8E7362909A97A006499CE /* ParkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A8E7352909A97A006499CE /* ParkerView.swift */; };
+		26AD30F82924639700012AB1 /* Auth0 in Frameworks */ = {isa = PBXBuildFile; productRef = 26AD30F72924639700012AB1 /* Auth0 */; };
+		26AD30FA2924642A00012AB1 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26AD30F92924642A00012AB1 /* Auth0.plist */; };
+		26AD30FC292467F800012AB1 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AD30FB292467F800012AB1 /* Profile.swift */; };
+		26AD30FE29246D7600012AB1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AD30FD29246D7500012AB1 /* ProfileView.swift */; };
 		26B9DA00291C6AD600D34723 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B9D9FF291C6AD600D34723 /* Reservation.swift */; };
 		26D26C712904813A002D0A96 /* TowsonParkSwapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D26C702904813A002D0A96 /* TowsonParkSwapApp.swift */; };
 		26D26C732904813A002D0A96 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D26C722904813A002D0A96 /* ContentView.swift */; };
@@ -47,6 +51,9 @@
 		2698400D290AE9BE0035F156 /* SwapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapperView.swift; sourceTree = "<group>"; };
 		26A8E7332909A573006499CE /* ParkerSwapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkerSwapperView.swift; sourceTree = "<group>"; };
 		26A8E7352909A97A006499CE /* ParkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkerView.swift; sourceTree = "<group>"; };
+		26AD30F92924642A00012AB1 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
+		26AD30FB292467F800012AB1 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		26AD30FD29246D7500012AB1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		26B9D9FF291C6AD600D34723 /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
 		26D26C6D2904813A002D0A96 /* TowsonParkSwap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TowsonParkSwap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26D26C702904813A002D0A96 /* TowsonParkSwapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowsonParkSwapApp.swift; sourceTree = "<group>"; };
@@ -65,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26AD30F82924639700012AB1 /* Auth0 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				26D26C722904813A002D0A96 /* ContentView.swift */,
+				26AD30FD29246D7500012AB1 /* ProfileView.swift */,
+				26AD30FB292467F800012AB1 /* Profile.swift */,
 				26A8E7332909A573006499CE /* ParkerSwapperView.swift */,
 				2698400D290AE9BE0035F156 /* SwapperView.swift */,
 				26A8E7352909A97A006499CE /* ParkerView.swift */,
@@ -119,6 +129,7 @@
 				26B9D9FF291C6AD600D34723 /* Reservation.swift */,
 				26D26C742904813B002D0A96 /* Assets.xcassets */,
 				26D26C762904813B002D0A96 /* Preview Content */,
+				26AD30F92924642A00012AB1 /* Auth0.plist */,
 			);
 			path = TowsonParkSwap;
 			sourceTree = "<group>";
@@ -164,6 +175,9 @@
 			dependencies = (
 			);
 			name = TowsonParkSwap;
+			packageProductDependencies = (
+				26AD30F72924639700012AB1 /* Auth0 */,
+			);
 			productName = TowsonParkSwap;
 			productReference = 26D26C6D2904813A002D0A96 /* TowsonParkSwap.app */;
 			productType = "com.apple.product-type.application";
@@ -236,6 +250,9 @@
 				Base,
 			);
 			mainGroup = 26D26C642904813A002D0A96;
+			packageReferences = (
+				26AD30F62924639700012AB1 /* XCRemoteSwiftPackageReference "Auth0" */,
+			);
 			productRefGroup = 26D26C6E2904813A002D0A96 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -253,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26D26C782904813B002D0A96 /* Preview Assets.xcassets in Resources */,
+				26AD30FA2924642A00012AB1 /* Auth0.plist in Resources */,
 				26D26C752904813B002D0A96 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26D26C732904813A002D0A96 /* ContentView.swift in Sources */,
+				26AD30FC292467F800012AB1 /* Profile.swift in Sources */,
 				2698400E290AE9BE0035F156 /* SwapperView.swift in Sources */,
 				26B9DA00291C6AD600D34723 /* Reservation.swift in Sources */,
 				26A8E7362909A97A006499CE /* ParkerView.swift in Sources */,
@@ -286,6 +305,7 @@
 				2690F1BD29131AC10026D97C /* ReservationConfirmation.swift in Sources */,
 				26D26C712904813A002D0A96 /* TowsonParkSwapApp.swift in Sources */,
 				26A8E7342909A573006499CE /* ParkerSwapperView.swift in Sources */,
+				26AD30FE29246D7600012AB1 /* ProfileView.swift in Sources */,
 				26643839291C2DF700ADF6D7 /* LocationSelection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -605,6 +625,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		26AD30F62924639700012AB1 /* XCRemoteSwiftPackageReference "Auth0" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/Auth0.swift";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 2.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		26AD30F72924639700012AB1 /* Auth0 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 26AD30F62924639700012AB1 /* XCRemoteSwiftPackageReference "Auth0" */;
+			productName = Auth0;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 26D26C652904813A002D0A96 /* Project object */;
 }
