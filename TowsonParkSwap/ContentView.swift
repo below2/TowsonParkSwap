@@ -11,7 +11,7 @@ import Auth0
 struct ContentView: View {
     
     // State property vars (state properties persistently update view):
-    @State var authenticationPass: Bool = true
+    @State var authenticationPass: Bool = false
     @State var userProfile = Profile.empty
     
     var body: some View {
