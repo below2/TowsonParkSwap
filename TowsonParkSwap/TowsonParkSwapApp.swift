@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import RealmSwift
+
+let app = App(id: "application-0-zxdjd")
 
 @main
-struct TowsonParkSwapApp: App {
+struct TowsonParkSwapApp: SwiftUI.App {
     var body: some Scene {
         WindowGroup {
             ContentView()

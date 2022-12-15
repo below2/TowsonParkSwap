@@ -6,9 +6,9 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ParkerView: View {
-    
     // State property vars:
     // Handle general specifier for location selection
     @State var showGarage: Bool = true
@@ -35,6 +35,8 @@ struct ParkerView: View {
         general: "",
         optionalSpecifier: "",
         specifier: "")
+    
+    var userProfile: Profile
     
     var body: some View {
         VStack {
@@ -97,7 +99,7 @@ struct ParkerView: View {
                 }
             }
             
-//--------------------------------------------------------------------//
+            //--------------------------------------------------------------------//
             // Garage, in <garages>, buttons, on floor <floors>, buttons
             if showGarageSelections {
                 Text("in")
@@ -383,7 +385,7 @@ struct ParkerView: View {
                 }
             }
             
-//--------------------------------------------------------------------//
+            //--------------------------------------------------------------------//
             
             // NavigationLink formatting:
             if canContinue {
@@ -393,10 +395,10 @@ struct ParkerView: View {
                     .background(Color.gray)
                     .offset(y: 20)
                 
-                NavigationLink("Continue", destination: ReservationTimeView(locationSelection: userLocationSelection))
+                NavigationLink("Continue →", destination: ReservationTimeView(locationSelection: userLocationSelection, userProfile: userProfile))
                     .font(.title)
                     .foregroundColor(.white)
-                    .frame(width: 380.0, height: 60.0)
+                    .frame(width: 365.0, height: 60.0)
                     .background(Color.yellow)
                     .cornerRadius(10.0)
                     .offset(y: 40)
@@ -409,8 +411,10 @@ struct ParkerView: View {
 
 //--------------------------------------------------------------------//
 struct ParkerView_Previews: PreviewProvider {
+    static let userProfilePreview = Profile.empty
+    
     static var previews: some View {
-        ParkerView()
+        ParkerView(userProfile: userProfilePreview)
     }
 }
 

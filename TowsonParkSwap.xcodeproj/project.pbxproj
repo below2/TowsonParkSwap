@@ -7,11 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2615D7E8294B965D0097470C /* ResvDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615D7E7294B965D0097470C /* ResvDetailView.swift */; };
+		2617758A294A71750096ABB0 /* Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26177589294A71750096ABB0 /* Tester.swift */; };
+		262ADF2D294809C000A8F7E4 /* ReservationTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262ADF2C294809C000A8F7E4 /* ReservationTemp.swift */; };
+		262ADF2F294809D100A8F7E4 /* ReservationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262ADF2E294809D100A8F7E4 /* ReservationList.swift */; };
 		265A6D4F290A218900158F73 /* ReservationTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265A6D4E290A218900158F73 /* ReservationTimeView.swift */; };
 		26643839291C2DF700ADF6D7 /* LocationSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26643838291C2DF700ADF6D7 /* LocationSelection.swift */; };
 		2690F1BD29131AC10026D97C /* ReservationConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2690F1BC29131AC10026D97C /* ReservationConfirmation.swift */; };
 		2698400E290AE9BE0035F156 /* SwapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698400D290AE9BE0035F156 /* SwapperView.swift */; };
-		26A8E7342909A573006499CE /* ParkerSwapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A8E7332909A573006499CE /* ParkerSwapperView.swift */; };
+		269ABCCA294A43E100594324 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 269ABCC9294A43E100594324 /* OpenAISwift */; };
+		269ABCCC294A441300594324 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269ABCCB294A441300594324 /* APICaller.swift */; };
+		269ABCCE294A45DA00594324 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269ABCCD294A45DA00594324 /* HelpView.swift */; };
+		269ABCD0294A5B7000594324 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269ABCCF294A5B7000594324 /* ActivityView.swift */; };
+		269ABCD2294A5CAE00594324 /* FulfillmentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269ABCD1294A5CAE00594324 /* FulfillmentList.swift */; };
+		269ABCD4294A6A9400594324 /* AvailableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269ABCD3294A6A9400594324 /* AvailableList.swift */; };
 		26A8E7362909A97A006499CE /* ParkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A8E7352909A97A006499CE /* ParkerView.swift */; };
 		26AD30F82924639700012AB1 /* Auth0 in Frameworks */ = {isa = PBXBuildFile; productRef = 26AD30F72924639700012AB1 /* Auth0 */; };
 		26AD30FA2924642A00012AB1 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26AD30F92924642A00012AB1 /* Auth0.plist */; };
@@ -25,6 +34,8 @@
 		26D26C822904813C002D0A96 /* TowsonParkSwapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D26C812904813C002D0A96 /* TowsonParkSwapTests.swift */; };
 		26D26C8C2904813C002D0A96 /* TowsonParkSwapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D26C8B2904813C002D0A96 /* TowsonParkSwapUITests.swift */; };
 		26D26C8E2904813C002D0A96 /* TowsonParkSwapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D26C8D2904813C002D0A96 /* TowsonParkSwapUITestsLaunchTests.swift */; };
+		26FA2EA0292E9FA000817D1F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 26FA2E9F292E9FA000817D1F /* Realm */; };
+		26FA2EA2292E9FA000817D1F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 26FA2EA1292E9FA000817D1F /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,11 +56,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2615D7E7294B965D0097470C /* ResvDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResvDetailView.swift; sourceTree = "<group>"; };
+		26177589294A71750096ABB0 /* Tester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tester.swift; sourceTree = "<group>"; };
+		262ADF2C294809C000A8F7E4 /* ReservationTemp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationTemp.swift; sourceTree = "<group>"; };
+		262ADF2E294809D100A8F7E4 /* ReservationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationList.swift; sourceTree = "<group>"; };
 		265A6D4E290A218900158F73 /* ReservationTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationTimeView.swift; sourceTree = "<group>"; };
 		26643838291C2DF700ADF6D7 /* LocationSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelection.swift; sourceTree = "<group>"; };
 		2690F1BC29131AC10026D97C /* ReservationConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationConfirmation.swift; sourceTree = "<group>"; };
 		2698400D290AE9BE0035F156 /* SwapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapperView.swift; sourceTree = "<group>"; };
-		26A8E7332909A573006499CE /* ParkerSwapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkerSwapperView.swift; sourceTree = "<group>"; };
+		269ABCCB294A441300594324 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		269ABCCD294A45DA00594324 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		269ABCCF294A5B7000594324 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		269ABCD1294A5CAE00594324 /* FulfillmentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FulfillmentList.swift; sourceTree = "<group>"; };
+		269ABCD3294A6A9400594324 /* AvailableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableList.swift; sourceTree = "<group>"; };
 		26A8E7352909A97A006499CE /* ParkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkerView.swift; sourceTree = "<group>"; };
 		26AD30F92924642A00012AB1 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
 		26AD30FB292467F800012AB1 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -72,6 +91,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				269ABCCA294A43E100594324 /* OpenAISwift in Frameworks */,
+				26FA2EA2292E9FA000817D1F /* RealmSwift in Frameworks */,
+				26FA2EA0292E9FA000817D1F /* Realm in Frameworks */,
 				26AD30F82924639700012AB1 /* Auth0 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,15 +140,23 @@
 			children = (
 				26D26C722904813A002D0A96 /* ContentView.swift */,
 				26AD30FD29246D7500012AB1 /* ProfileView.swift */,
+				269ABCCF294A5B7000594324 /* ActivityView.swift */,
+				269ABCCD294A45DA00594324 /* HelpView.swift */,
 				26AD30FB292467F800012AB1 /* Profile.swift */,
-				26A8E7332909A573006499CE /* ParkerSwapperView.swift */,
 				2698400D290AE9BE0035F156 /* SwapperView.swift */,
+				2615D7E7294B965D0097470C /* ResvDetailView.swift */,
+				26177589294A71750096ABB0 /* Tester.swift */,
 				26A8E7352909A97A006499CE /* ParkerView.swift */,
 				265A6D4E290A218900158F73 /* ReservationTimeView.swift */,
 				2690F1BC29131AC10026D97C /* ReservationConfirmation.swift */,
 				26D26C702904813A002D0A96 /* TowsonParkSwapApp.swift */,
+				269ABCCB294A441300594324 /* APICaller.swift */,
 				26643838291C2DF700ADF6D7 /* LocationSelection.swift */,
+				262ADF2C294809C000A8F7E4 /* ReservationTemp.swift */,
 				26B9D9FF291C6AD600D34723 /* Reservation.swift */,
+				262ADF2E294809D100A8F7E4 /* ReservationList.swift */,
+				269ABCD3294A6A9400594324 /* AvailableList.swift */,
+				269ABCD1294A5CAE00594324 /* FulfillmentList.swift */,
 				26D26C742904813B002D0A96 /* Assets.xcassets */,
 				26D26C762904813B002D0A96 /* Preview Content */,
 				26AD30F92924642A00012AB1 /* Auth0.plist */,
@@ -177,6 +207,9 @@
 			name = TowsonParkSwap;
 			packageProductDependencies = (
 				26AD30F72924639700012AB1 /* Auth0 */,
+				26FA2E9F292E9FA000817D1F /* Realm */,
+				26FA2EA1292E9FA000817D1F /* RealmSwift */,
+				269ABCC9294A43E100594324 /* OpenAISwift */,
 			);
 			productName = TowsonParkSwap;
 			productReference = 26D26C6D2904813A002D0A96 /* TowsonParkSwap.app */;
@@ -252,6 +285,8 @@
 			mainGroup = 26D26C642904813A002D0A96;
 			packageReferences = (
 				26AD30F62924639700012AB1 /* XCRemoteSwiftPackageReference "Auth0" */,
+				26FA2E9E292E9FA000817D1F /* XCRemoteSwiftPackageReference "realm-swift" */,
+				269ABCC8294A43E100594324 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
 			);
 			productRefGroup = 26D26C6E2904813A002D0A96 /* Products */;
 			projectDirPath = "";
@@ -298,14 +333,22 @@
 			files = (
 				26D26C732904813A002D0A96 /* ContentView.swift in Sources */,
 				26AD30FC292467F800012AB1 /* Profile.swift in Sources */,
+				269ABCCC294A441300594324 /* APICaller.swift in Sources */,
+				269ABCCE294A45DA00594324 /* HelpView.swift in Sources */,
 				2698400E290AE9BE0035F156 /* SwapperView.swift in Sources */,
 				26B9DA00291C6AD600D34723 /* Reservation.swift in Sources */,
+				2617758A294A71750096ABB0 /* Tester.swift in Sources */,
 				26A8E7362909A97A006499CE /* ParkerView.swift in Sources */,
 				265A6D4F290A218900158F73 /* ReservationTimeView.swift in Sources */,
+				269ABCD0294A5B7000594324 /* ActivityView.swift in Sources */,
+				269ABCD4294A6A9400594324 /* AvailableList.swift in Sources */,
+				262ADF2F294809D100A8F7E4 /* ReservationList.swift in Sources */,
 				2690F1BD29131AC10026D97C /* ReservationConfirmation.swift in Sources */,
 				26D26C712904813A002D0A96 /* TowsonParkSwapApp.swift in Sources */,
-				26A8E7342909A573006499CE /* ParkerSwapperView.swift in Sources */,
+				2615D7E8294B965D0097470C /* ResvDetailView.swift in Sources */,
 				26AD30FE29246D7600012AB1 /* ProfileView.swift in Sources */,
+				262ADF2D294809C000A8F7E4 /* ReservationTemp.swift in Sources */,
+				269ABCD2294A5CAE00594324 /* FulfillmentList.swift in Sources */,
 				26643839291C2DF700ADF6D7 /* LocationSelection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -627,6 +670,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		269ABCC8294A43E100594324 /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamrushy/OpenAISwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		26AD30F62924639700012AB1 /* XCRemoteSwiftPackageReference "Auth0" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/auth0/Auth0.swift";
@@ -635,13 +686,36 @@
 				minimumVersion = 2.3.0;
 			};
 		};
+		26FA2E9E292E9FA000817D1F /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		269ABCC9294A43E100594324 /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 269ABCC8294A43E100594324 /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
+		};
 		26AD30F72924639700012AB1 /* Auth0 */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 26AD30F62924639700012AB1 /* XCRemoteSwiftPackageReference "Auth0" */;
 			productName = Auth0;
+		};
+		26FA2E9F292E9FA000817D1F /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 26FA2E9E292E9FA000817D1F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		26FA2EA1292E9FA000817D1F /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 26FA2E9E292E9FA000817D1F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

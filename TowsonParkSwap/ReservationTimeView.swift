@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ReservationTimeView: View {
     
@@ -13,10 +14,12 @@ struct ReservationTimeView: View {
     @State private var currentDate = Date()
     // Declare LocationSelection object passed from ParkerView
     var locationSelection: LocationSelection
+    //@StateObject var reservation = Reservation()
+    var userProfile: Profile
     
     var body: some View {
         // Instantiate Reservation object to be passed to ReservationConfirmation
-        let reservation = Reservation(
+        let reservationTemp = ReservationTemp(
             location: locationSelection,
             time: currentDate)
         
@@ -69,23 +72,31 @@ struct ReservationTimeView: View {
                     .multilineTextAlignment(.center)
                     .padding()
             }
-            
+            /*Button(action: {
+             reservation.general = locationSelection.general
+             reservation.optionalSpecifier = locationSelection.optionalSpecifier
+             reservation.specifier = locationSelection.specifier
+             reservation.time = currentDate
+             }) {
+             Text("click me")
+             }*/
             // Continue button
-            NavigationLink("Continue", destination: ReservationConfirmation(reservation: reservation))
+            NavigationLink("Continue →", destination: ReservationConfirmation(reservationTemp: reservationTemp, userProfile: userProfile))
                 .font(.title)
                 .foregroundColor(.white)
-                .frame(width: 380.0, height: 60.0)
+                .frame(width: 365.0, height: 60.0)
                 .background(Color.yellow)
                 .cornerRadius(10.0)
         }
     }
+    //.environmentObject(reservation)
 }
 
 // Logic/calculations for time range displayed by DatePicker (15 min from current time -> 30 days from current time)
 var timeRange: ClosedRange<Date> {
-  let fifteenMin = Calendar.current.date(byAdding: .minute, value: 15, to: Date())!
-  let thirtyDays = Calendar.current.date(byAdding: .day, value: 30, to: Date())!
-  return fifteenMin...thirtyDays
+    let fifteenMin = Calendar.current.date(byAdding: .minute, value: 15, to: Date())!
+    let thirtyDays = Calendar.current.date(byAdding: .day, value: 30, to: Date())!
+    return fifteenMin...thirtyDays
 }
 
 // Instantiate LocationSelection object passed from ParkerView
@@ -95,7 +106,9 @@ struct ReservationTimeView_Previews: PreviewProvider {
         optionalSpecifier: "optionalSpecifier",
         specifier: "specifier")
     
+    static let userProfilePreview = Profile.empty
+    
     static var previews: some View {
-        ReservationTimeView(locationSelection: locationSelectionPreview)
+        ReservationTimeView(locationSelection: locationSelectionPreview, userProfile: userProfilePreview)
     }
 }

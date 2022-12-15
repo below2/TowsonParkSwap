@@ -7,6 +7,7 @@
 
 import Foundation
 import JWTDecode
+import RealmSwift
 
 
 struct Profile {
@@ -17,7 +18,6 @@ struct Profile {
     let emailVerified: String
     let picture: String
     let updatedAt: String
-    
 }
 
 

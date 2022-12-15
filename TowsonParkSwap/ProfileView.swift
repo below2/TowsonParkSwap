@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ProfileView: View {
     
@@ -16,9 +17,16 @@ struct ProfileView: View {
     @State var parkerSelected: Bool = false
     @State var swapperSelected: Bool = false
     
-    
     var body: some View {
         VStack {
+            NavigationLink("?", destination: HelpView())
+                    .font(.largeTitle)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(width: 50, height: 50)
+                    .background(Color.blue)
+                    .cornerRadius(25.0)
+                    .offset(x: 160)
             Spacer()
             
             // User image
@@ -84,7 +92,7 @@ struct ProfileView: View {
                     Text("Parker role selected")
                         .font(.title3)
                     
-                    NavigationLink("Continue", destination: ParkerView())
+                    NavigationLink("Continue →", destination: ParkerView(userProfile: userProfile))
                         .font(.title)
                         .foregroundColor(.white)
                         .frame(width: 280.0, height: 60.0)
@@ -103,7 +111,7 @@ struct ProfileView: View {
                     Text("Swapper role selected")
                         .font(.title3)
                     
-                    NavigationLink("Continue", destination: SwapperView())
+                    NavigationLink("Continue →", destination: SwapperView(userProfile: userProfile))
                         .font(.title)
                         .foregroundColor(.white)
                         .frame(width: 280.0, height: 60.0)
@@ -111,6 +119,22 @@ struct ProfileView: View {
                         .cornerRadius(10.0)
                 }
                 
+                else if !parkerSelected && !swapperSelected {
+                    Divider()
+                        .frame(width: 360.0)
+                        .background(Color.gray)
+                        .offset(y: -30)
+                    
+                    Text("View current activity")
+                        .font(.title3)
+                    
+                    NavigationLink("Activity →", destination: ActivityView(userProfile: userProfile))
+                        .font(.title)
+                        .foregroundColor(.white)
+                        .frame(width: 280.0, height: 60.0)
+                        .background(Color.yellow)
+                        .cornerRadius(10.0)
+                }
             }
         }
         .padding()
@@ -148,6 +172,6 @@ struct ProfileView_Previews: PreviewProvider {
         ProfileView(userProfile: userProfilePreview)
     }
 }
-    
-    
+
+
 

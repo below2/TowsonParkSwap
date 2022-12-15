@@ -9,11 +9,24 @@
 // TODO: extract subviews
 
 import SwiftUI
+import RealmSwift
 
 struct ReservationConfirmation: View {
-    var reservation: Reservation
+    var reservationTemp: ReservationTemp
+    //@StateObject var reservation = Reservation()
+    //@EnvironmentObject var reservation: Reservation
+    //@StateObject var reservationList = ReservationList()
+    //@EnvironmentObject var reservation: Reservation
+    @EnvironmentObject var reservationList: ReservationList
+    @EnvironmentObject var availableList: AvailableList
+    
+    @State var isConfirmed: Bool = false
+    
+    var userProfile: Profile
     
     var body: some View {
+        var reservation = Reservation()
+        //NavigationStack {
         VStack {
             
             Spacer()
@@ -41,13 +54,13 @@ struct ReservationConfirmation: View {
                         // Location details pulled from Reservation object
                         VStack {
                             
-                            Text(reservation.location.general)
+                            Text(reservationTemp.location.general)
                                 .font(.title3)
-                            if reservation.location.optionalSpecifier != "" {
-                                Text(reservation.location.optionalSpecifier)
+                            if reservationTemp.location.optionalSpecifier != "" {
+                                Text(reservationTemp.location.optionalSpecifier)
                                     .font(.title3)
                             }
-                            Text(reservation.location.specifier)
+                            Text(reservationTemp.location.specifier)
                                 .font(.title3)
                             
                         }
@@ -69,7 +82,7 @@ struct ReservationConfirmation: View {
                         Text("Time:")
                             .font(.title)
                         Spacer()
-                        Text("\(reservation.time.getFormattedDate(format: "MMMM d, h:mm a"))")
+                        Text("\(reservationTemp.time.getFormattedDate(format: "MMMM d, h:mm a"))")
                             .font(.title3)
                             .multilineTextAlignment(.trailing)
                         Spacer()
@@ -102,31 +115,62 @@ struct ReservationConfirmation: View {
                 }
             }
             
-            // Continue button
-            Button(action: {print("continue")}) {
-                Text("Continue")
+            if (isConfirmed == false) {
+                // Continue button
+                Button(action: {
+                    reservation.id = UUID()
+                    reservation.general = reservationTemp.location.general
+                    reservation.optionalSpecifier = reservationTemp.location.optionalSpecifier
+                    reservation.specifier = reservationTemp.location.specifier
+                    reservation.time = reservationTemp.time
+                    
+                    reservationList.add(reservation: reservation)
+                    availableList.add(reservation: reservation)
+                    
+                    isConfirmed.toggle()
+                }) {
+                    Text("Confirm")
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(width: 360.0, height: 80)
+                        .background(Color.yellow)
+                        .cornerRadius(15.0)
+                        .offset(y: -20)
+                }
+            }
+            if (isConfirmed) {
+                NavigationLink("Continue →", destination: ProfileView(userProfile: userProfile))
                     .font(.largeTitle)
                     .foregroundColor(.white)
                     .padding()
-                    .frame(width: 350.0, height: 70)
+                    .frame(width: 365.0, height: 80)
                     .background(Color.yellow)
                     .cornerRadius(15.0)
                     .offset(y: -20)
             }
         }
     }
+    //.environmentObject(reservation)
+    //.environmentObject(reservationList)
 }
+//}
 
 // Instantiate Reservation object passed from ReservationTimeView
 struct ReservationConfirmation_Previews: PreviewProvider {
-    static let reservationPreview = Reservation(
+    //ReservationConfirmation().environmentObject(Reservation())
+    static let reservationPreview = ReservationTemp(
         location: LocationSelection(
             general: "general",
             optionalSpecifier: "optionalSpecifier",
             specifier: "specifier"),
         time: Date())
     
+    static let userProfilePreview = Profile.empty
+    
     static var previews: some View {
-        ReservationConfirmation(reservation: reservationPreview)
+        ReservationConfirmation(reservationTemp: reservationPreview, userProfile: userProfilePreview)
+        //ReservationConfirmation(reservationTemp: reservationPreview, userProfile: userProfilePreview)
+        //ReservationConfirmation().environmentObject(Reservation())
     }
 }
